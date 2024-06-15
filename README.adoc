@@ -38,5 +38,6 @@ pip install asyncio edge_tts tkinter pygame os
 
 Step 4: Run the application
 ```
+$ cd Linux_TTS_with_Edge
 $ python3 Linux_TTS_with_Edge.py
 ```
