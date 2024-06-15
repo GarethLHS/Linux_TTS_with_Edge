@@ -28,29 +28,34 @@ class App(tk.Tk):
         self.file_entry = tk.Entry(self, textvariable=self.file_path, width=40)
         self.file_entry.pack()
         
-        self.browse_button = tk.Button(self, text="Browse", command=self.browse_file)
-        self.browse_button.pack(pady=10)
+        # Create a frame for the Browse and Process buttons
+        button_frame = tk.Frame(self)
+        button_frame.pack(pady=10)
+
+        self.browse_button = tk.Button(button_frame, text="Browse", command=self.browse_file)
+        self.browse_button.pack(side=tk.LEFT, padx=10)
+
+        self.process_button = tk.Button(button_frame, text="Process Input File", command=self.process_file)
+        self.process_button.pack(side=tk.LEFT, padx=10)
 
         self.clipboard_button = tk.Button(self, text="Process Clipboard Text", command=self.process_clipboard)
         self.clipboard_button.pack(pady=10)
 
-        self.highlight_button = tk.Button(self, text="Process Highlighted Text", command=self.process_highlighted_text)
-        self.highlight_button.pack(pady=10)
-        
         self.progress_label = tk.Label(self, text="")
         self.progress_label.pack()
         
         self.progress_bar = Progressbar(self, orient=tk.HORIZONTAL, length=200, mode='determinate')
         self.progress_bar.pack(pady=10)
         
-        self.process_button = tk.Button(self, text="Process", command=self.process_file)
-        self.process_button.pack(pady=10)
+        # Create a frame for the Play and Reset buttons
+        button_frame1 = tk.Frame(self)
+        button_frame1.pack(pady=10)
         
-        self.play_button = tk.Button(self, text="Play", command=self.toggle_play_pause)
-        self.play_button.pack(pady=10)
+        self.play_button = tk.Button(button_frame1, text="Play", command=self.toggle_play_pause)
+        self.play_button.pack(side=tk.LEFT, pady=10)
 
-        self.reset_button = tk.Button(self, text="Reset", command=self.reset_audio)
-        self.reset_button.pack(pady=10)
+        self.reset_button = tk.Button(button_frame1, text="Reset", command=self.reset_audio)
+        self.reset_button.pack(side=tk.LEFT, pady=10)
 
         self.exit_button = tk.Button(self, text="Exit", command=self.exit_program)
         self.exit_button.pack(pady=10)
@@ -91,6 +96,7 @@ class App(tk.Tk):
         self.progress_bar['value'] = 100
 
     def process_clipboard(self):
+        self.reset_audio()
         try:
             clipboard_text = self.clipboard_get()
         except tk.TclError:
@@ -117,16 +123,8 @@ class App(tk.Tk):
         self.progress_label.config(text="Processing complete")
         self.progress_bar['value'] = 100
 
-    def process_highlighted_text(self):
-        try:
-            highlighted_text = self.get_highlighted_text()
-            if highlighted_text:
-                loop = asyncio.get_event_loop()
-                loop.run_until_complete(self.process_audio_from_text(highlighted_text))
-            else:
-                messagebox.showerror("Error", "No text highlighted.")
-        except Exception as e:
-            messagebox.showerror("Error", f"An error occurred: {str(e)}")
+        self.toggle_play_pause()
+
 
     def get_highlighted_text(self):
         try:
