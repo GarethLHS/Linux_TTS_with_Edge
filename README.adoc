@@ -12,3 +12,29 @@ This small python application used the Microsoft Edge Online Text to Speech libr
 Its reasonably fast processing and very simple and works 
 
 you can read from the clip board and from longer txt files.
+
+Step 1: clone git repository
+```
+git clone https://github.com/GarethLHS/Linux_TTS_with_Edge.git
+```
+
+Step 2: install os dependencies
+```
+Debian
+$ apt-get update
+$ sudo apt-get install ffmpeg python3 pip
+
+Fedora
+$ dnf update
+$ sudo dnf install ffmpeg python3 pip
+```
+
+Step 3: Install python dependencies
+```
+pip install asyncio edge_tts tkinter pygame os
+```
+
+Step 4: Run the application
+```
+$ python3 Linux_TTS_with_Edge.py
+```
