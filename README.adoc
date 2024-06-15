@@ -1,0 +1,4 @@
+# Linux_TTS_with_Edge
+
+.A Application 
+ ![Application](img/display.png)
