@@ -1,4 +1,14 @@
-# Linux_TTS_with_Edge
+# Linux_TTS_with_Edge Text to Speech
 
-.A Application 
- ![Application](img/display.png)
+.Application 
+image::img/display.png[]
+
+This application was developed so that I could have a better screen reader in Linux platform.
+
+I like being able to have the computer to read to me when I'm spend so much time reading.
+
+This small python application used the Microsoft Edge Online Text to Speech library to bring naturly speaking language to using your Linux computer.
+
+Its reasonably fast processing and very simple and works 
+
+you can read from the clip board and from longer txt files.
