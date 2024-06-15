@@ -5,13 +5,15 @@ image::img/display.png[]
 
 This application was developed so that I could have a better screen reader in Linux platform.
 
-I like being able to have the computer to read to me when I'm spend so much time reading.
+I like being able to have the computer to read to me when I'm spending so much time reading.
 
-This small python application used the Microsoft Edge Online Text to Speech library to bring naturly speaking language to using your Linux computer.
+This small python application that uses the Microsoft Edge Online Text to Speech library to bring naturly speaking language to using your Linux computer.
 
 Its reasonably fast processing and very simple and works 
 
-you can read from the clip board and from longer txt files.
+You can read from the clipboard and from longer txt files.
+
+At the moment it is in English at 1.5x speed as this is the speed I prefer will add option later to allow changes in the GUI.
 
 Step 1: clone git repository
 ```
